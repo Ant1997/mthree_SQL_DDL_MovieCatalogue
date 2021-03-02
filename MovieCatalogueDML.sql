@@ -48,10 +48,16 @@ UPDATE Genre SET
 WHERE GenreID = 1; 
 
 SET SQL_SAFE_UPDATES = 0;
-DELETE FROM CastMembers
-WHERE ActorID = 1; 
-
-DELETE FROM Movie 
-WHERE Movie.Title = 'Rambo: First Blood';
+DELETE FROM CastMembers WHERE MovieID = 1;
+DELETE FROM Movie WHERE MovieID = 1;
 
 SET SQL_SAFE_UPDATES = 1;
+
+ALTER TABLE Actor ADD DateOfDeath date NULL;
+
+UPDATE Actor
+SET DateOfDeath = '1994/3/4'
+WHERE ActorID = 3;
+
+SELECT * 
+FROM Actor;
